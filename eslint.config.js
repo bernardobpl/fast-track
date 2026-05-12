@@ -53,7 +53,13 @@ module.exports = [
       // Custom overrides
       'prettier/prettier': 'error',
       'react/react-in-jsx-scope': 'off',
+      'react/jsx-uses-react': 'off',
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+      // React Native — catch unused styles and unsafe patterns early
+      'react-native/no-unused-styles': 'error',
+      'react-native/no-inline-styles': 'warn',
+      'react-native/no-color-literals': 'warn',
+      'react-native/no-single-element-style-arrays': 'error',
     },
     settings: {
       react: { version: 'detect' },
