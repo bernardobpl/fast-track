@@ -13,6 +13,12 @@
       "adaptiveIcon": {
         "backgroundColor": "#0d0d0d"
       }
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "4b60ea13-51c6-40e6-8881-9b9a3723cade"
+      }
+    },
+    "owner": "bernardobpl"
   }
 }
