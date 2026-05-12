@@ -164,10 +164,11 @@ IDLE
   → COUNTING_UP     (tap "Start Count" — for isometric exercises)
 
 RESTING
-  → OVERTIME        (reaches zero — color flip, continues)
+  → OVERTIME        (reaches zero — color flip, continues counting up)
   → PAUSED          (tap Pause)
 
 OVERTIME
+  → OVERTIME        (tap "Stop Ring" — dismisses alert only, timer stays in OVERTIME)
   → PAUSED          (tap Pause)
 
 PAUSED
@@ -180,13 +181,17 @@ Any → IDLE          (tap Reset)
 
 From top to bottom:
 1. **Header strip:** workout elapsed time (left) — exercise name + target (right shortcut)
-2. **Progress bars:** one pill per planned set, filled green as sets complete
+2. **Progress bars:** one pill per planned set, filled green as sets complete. For ad-hoc sessions with no target sets, pills are added dynamically as sets are logged (pills show completed sets only, no empty placeholders).
 3. **Timer:** `MM:SS` large, state label below (`REST · SET 2 OF 4`)
 4. **Time quick-adjust row:** `-15s  -5s  +5s  +15s` (values from preferences)
 5. **Next Set button:** full-width primary CTA
-6. **Weight / Sets panel:** two-column — `[-5kg] [80kg] [+5kg]` | `[-1] [4] [+1]`
+6. **Weight / Sets / Reps panel:** three-column — `[-5kg] [80kg] [+5kg]` | `[-1set] [4] [+1set]` | `[-1rep] [8] [+1rep]`
 7. **Secondary controls row:** Pause · Reset · Skip Set
 8. **Bottom tabs**
+
+**Skip Set vs Skip Exercise:**
+- **Skip Set** (secondary controls row): marks the current set as `SetLog.skipped = true`, logs it, auto-advances to the next set's rest timer. Does not affect remaining sets.
+- **Skip Exercise** (via ExerciseConfigModal long-press or swipe): marks `SessionExercise.skipped = true`, skips all remaining sets for that exercise and advances to the next exercise. All unlogged sets are treated as not reached (no `SetLog` row).
 
 ### 5.3 Workout Home Screen (no active session)
 
