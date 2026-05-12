@@ -1,7 +1,18 @@
 {
   "expo": {
-    "name": "fast-track",
+    "name": "Fast Track",
     "slug": "fast-track",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "ios": {
+      "bundleIdentifier": "com.fasttrack.app",
+      "supportsTablet": false
+    },
+    "android": {
+      "package": "com.fasttrack.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#0d0d0d"
+      }
+    }
   }
 }
